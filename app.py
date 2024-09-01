@@ -11,4 +11,4 @@ def hello_world():
 
 @app.route("/test")
 def hello_world():
-    return {"status": "ok "}
+    return {"status": "ok"}

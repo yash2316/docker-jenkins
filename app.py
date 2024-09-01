@@ -11,4 +11,4 @@ def hello_world():
 
 @app.route("/test")
 def test():
-    return {"status": "400"}
+    return {"status": "200"}

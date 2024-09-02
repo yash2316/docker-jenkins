@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     stages {
 
         stage('Test') {
@@ -12,13 +13,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                    docker build -t python-app .
+                   sh  'docker build -t python-app .'
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                    docker run -d --name my-container python-app
+                   sh 'docker run -d --name my-container python-app'
                 
             }
         }

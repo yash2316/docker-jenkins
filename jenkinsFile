@@ -14,7 +14,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
 
-                def testImage = docker.build("test-image", "./dockerfiles/test")
+                docker.build("test-image", "./dockerfiles/test")
             }
         }
 

@@ -5,24 +5,20 @@ pipeline {
 
         stage('Test') {
             steps {
-                
                    echo "hello world"
-                
             }
         }
         
 
         stage('Build Docker Image') {
             steps {
-               
-                    sh 'docker build -t python-app .'
+                    docker build -t python-app .
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                
-                    sh 'docker run -d --name my-container python-app'
+                    docker run -d --name my-container python-app
                 
             }
         }

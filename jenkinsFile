@@ -3,29 +3,27 @@ pipeline {
 
     stages {
 
-        stage('stage 1') {
+        stage('Test') {
             steps {
-                script {
-                    sh 'echo "hello world"'
-                }
+                
+                   echo "hello world"
+                
             }
         }
         
 
         stage('Build Docker Image') {
             steps {
-                script {
+               
                     sh 'docker build -t python-app .'
-                }
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                script {
-                    
+                
                     sh 'docker run -d --name my-container python-app'
-                }
+                
             }
         }
     }

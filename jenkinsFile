@@ -13,7 +13,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                   sh  'docker build -t python-app .'
+
+                def testImage = docker.build("test-image", "./dockerfiles/test")
             }
         }
 

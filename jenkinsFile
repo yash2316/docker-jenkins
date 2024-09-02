@@ -3,7 +3,13 @@ pipeline {
 
     stages {
 
-        
+        stage('stage 1') {
+            steps {
+                script {
+                    sh 'echo "hello world"'
+                }
+            }
+        }
         
 
         stage('Build Docker Image') {

@@ -1,27 +1,27 @@
 pipeline {
     agent any
 
-
     stages {
 
         stage('Test') {
             steps {
-                   echo "hello world"
+                echo "Hello, World!"
             }
         }
-        
 
         stage('Build Docker Image') {
             steps {
-
-                docker.build("test-image", "./dockerfiles/test")
+                script {
+                    docker.build("test-image", "./dockerfiles/test")
+                }
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                   sh 'docker run -d --name my-container python-app'
-                
+                script {
+                    sh 'docker run -d --name my-container test-image'
+                }
             }
         }
     }

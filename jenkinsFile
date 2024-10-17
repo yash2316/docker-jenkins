@@ -3,16 +3,12 @@ pipeline {
 
     stages {
 
-        stage('Test') {
-            steps {
-                echo "Hello, World!"
-            }
-        }
+        
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("test-image")
+                    bat "docker build -t yash/mycontainer ."
                 }
             }
         }
@@ -20,7 +16,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d --name my-container test-image'
+                    bat "docker run -d --name my-app yash/container"
                 }
             }
         }

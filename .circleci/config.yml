@@ -8,10 +8,12 @@ jobs:
       - checkout
 
       - run:
+          name: test step
+          command: echo "hello world shell"
+
+      - run:
           name: Run Python script
-          command: |
-            . venv/bin/activate
-            python test.py
+          command: python test.py
 
 workflows:
   version: 2
